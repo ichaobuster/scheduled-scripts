@@ -1,8 +1,7 @@
 name: Daily Run
 on:
-  push:
-  # schedule:
-  #  - cron: '15 4,10,22 * * *'
+  schedule:
+    - cron: '15 4,10,22 * * *'
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
