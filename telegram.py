@@ -2,6 +2,7 @@
 import sys
 import os
 import time
+import base64
 from telethon import TelegramClient, events, sync
 
 api_id = int(sys.argv[1])
