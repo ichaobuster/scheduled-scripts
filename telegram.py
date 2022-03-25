@@ -1,14 +1,17 @@
 # -*- coding: utf-8 -*-
+import sys
 import os
 import time
 from telethon import TelegramClient, events, sync
 
-api_id = 
-api_hash = ""
+api_id = int(sys.argv[1])
+api_hash = str(sys.argv[2])
+
+with open('telethon.session', 'wb') as session_file:
+    session_file.write(base64.b64decode(str(sys.argv[3])))
 
 # 发送给 Telegram Bot 签到
-session_name = "id_" + str(api_id)
-client = TelegramClient(session_name, api_id, api_hash)
+client = TelegramClient("telethon.session", api_id, api_hash)
 client.start()
 # 以下为签到逻辑
 # 忍者云签到
