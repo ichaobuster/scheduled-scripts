@@ -1,5 +1,6 @@
 name: Daily Run
 on:
+  push:
   # schedule:
   #  - cron: '15 4,10,22 * * *'
 jobs:
@@ -17,4 +18,4 @@ jobs:
       - run: pip install telethon
       - name: execute telegram script
         run: |
-          python telegram.py ${{ secrets.TG_API_ID }} ${{ secrets.TG_API_HASH }}
+          python telegram.py ${{ secrets.TG_API_ID }} ${{ secrets.TG_API_HASH }} ${{ secrets.TG_SESSION }}
