@@ -8,13 +8,13 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
-      - name: execute shell script
+      - name: execute emby script
         run: |
-          sh curl.sh
+          sh emby.sh ${{ secrets.EMBY_BASE_URL }} ${{ secrets.EMBY_USER_ID }} ${{ secrets.EMBY_TOKEN }}
       - uses: actions/setup-python@v3
         with:
           python-version: '3.9'
       - run: pip install telethon
-      - name: execute python script
+      - name: execute telegram script
         run: |
-          python python.py
+          python telegram.py ${{ secrets.TG_API_ID }} ${{ secrets.TG_API_HASH }}
