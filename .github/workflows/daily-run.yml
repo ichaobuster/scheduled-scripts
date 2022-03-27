@@ -11,6 +11,9 @@ jobs:
       - name: execute emby script
         run: |
           sh emby.sh ${{ secrets.EMBY_BASE_URL }} ${{ secrets.EMBY_USER_ID }} ${{ secrets.EMBY_TOKEN }}
+      - name: execute dlsite script
+        run: |
+          sh dlsite.sh ${{ secrets.DLSITECOOKIE }}
       - uses: actions/setup-python@v3
         with:
           python-version: '3.9'
