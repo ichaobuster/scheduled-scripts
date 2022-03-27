@@ -2,7 +2,6 @@ name: Daily Run
 on:
   schedule:
     - cron: '15 10,22 * * *'
-  push:
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
