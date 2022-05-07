@@ -19,10 +19,10 @@ client.start()
 client.send_message("@renzhecloudbot", '/checkin')
 # Emby签到
 client.send_message("@PronembyTGBot2_bot", '/start')
-time.sleep(3)
+time.sleep(15)
 messages = client.get_messages('@PronembyTGBot2_bot')
 messages[0].click(1)
-time.sleep(3)
+time.sleep(15)
 # 标记已读
 client.send_read_acknowledge("@renzhecloudbot")
 client.send_read_acknowledge("@PronembyTGBot2_bot")
