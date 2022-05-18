@@ -23,7 +23,8 @@ time.sleep(15)
 messages = client.get_messages('@PronembyTGBot2_bot')
 messages[0].click(1)
 # 标记已读
+time.sleep(3)
 client.send_read_acknowledge("@renzhecloudbot")
-# client.send_read_acknowledge("@PronembyTGBot2_bot")
+client.send_read_acknowledge("@PronembyTGBot2_bot")
 
 client.disconnect()
