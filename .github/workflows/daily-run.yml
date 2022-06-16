@@ -7,9 +7,6 @@ on:
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [12.x, 14.x, 16.x]
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
@@ -28,7 +25,7 @@ jobs:
           python telegram.py ${{ secrets.TG_API_ID }} ${{ secrets.TG_API_HASH }} ${{ secrets.TG_SESSION }}
       - uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: '14.x'
       - name: execute JD_DailyBonus script
         run: |
           node JD_DailyBonus.js "${{ secrets.JD_COOKIE }}"
