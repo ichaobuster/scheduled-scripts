@@ -59,20 +59,16 @@ function checkin() {
   };
   $.post(bilibili, async function(error, response, data) {
     if (error && !data) {
-      $.msgBody = `请求失败!\n${error}`;
+      console.error(`请求失败!\n${error}`);
     } else if (parseInt(response.status) == 200) {
-      $.msgBody = "签到成功！🎉";
+      console.info(result = "签到成功！🎉");
     } else if (/duplicate/.test(data)) {
-      $.msgBody = "今日已签过 ⚠️";
+      console.warn("今日已签过 ⚠️");
     } else if (/uid must/.test(data)) {
-      $.msgBody = "Cookie失效 ‼️‼️";
+      onsole.error("Cookie失效 ‼️‼️");
     } else {
-      $.msgBody = `签到失败 ‼️\n${data}`;
+      console.error(`签到失败 ‼️\n${data}`);
     }
-    if (barkKey) {
-      await BarkNotify($, barkKey, $.name, $.msgBody);
-    }
-    $.msg($.name, ``, $.msgBody);
     $.done();
   })
 }
