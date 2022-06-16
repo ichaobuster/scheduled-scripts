@@ -29,7 +29,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'
       - name: execute JD_DailyBonus script
         run: |
           node JD_DailyBonus.js "${{ secrets.JD_COOKIE }}"
