@@ -1,0 +1,20 @@
+name: Daily Run
+on:
+  schedule:
+    - cron: '10,20,30 4,16 * * *'
+  push:
+    branches: [ "main" ]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Setup NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14.x'
+      - name: install node modules
+        run: npm install request
+      - name: execute Bilibili-ExchangePoints script
+        run: node Bilibili-ExchangePoints.js "${{ secrets.BILI_MANGA_COOKIE }}"
