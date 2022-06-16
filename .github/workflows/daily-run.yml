@@ -11,18 +11,15 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v3
       - name: execute emby script
-        run: |
-          sh emby.sh ${{ secrets.EMBY_BASE_URL }} ${{ secrets.EMBY_USER_ID }} ${{ secrets.EMBY_TOKEN }}
+#        run: sh emby.sh ${{ secrets.EMBY_BASE_URL }} ${{ secrets.EMBY_USER_ID }} ${{ secrets.EMBY_TOKEN }}
       - name: execute dlsite script
-        run: |
-          sh dlsite.sh "${{ secrets.DLSITE_COOKIE }}"
+#        run: sh dlsite.sh "${{ secrets.DLSITE_COOKIE }}"
       - uses: actions/setup-python@v3
         with:
           python-version: '3.9'
       - run: pip install telethon
       - name: execute telegram script
-        run: |
-          python telegram.py ${{ secrets.TG_API_ID }} ${{ secrets.TG_API_HASH }} ${{ secrets.TG_SESSION }}
+#        run: python telegram.py ${{ secrets.TG_API_ID }} ${{ secrets.TG_API_HASH }} ${{ secrets.TG_SESSION }}
       - uses: actions/setup-node@v3
         with:
           node-version: '14.x'
