@@ -2,32 +2,30 @@ name: Daily Run
 on:
   schedule:
     - cron: '15 10,22 * * *'
-  push:
-    branches: [ "main" ]
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
-#      - name: execute emby script
-#        run: sh emby.sh ${{ secrets.EMBY_BASE_URL }} ${{ secrets.EMBY_USER_ID }} ${{ secrets.EMBY_TOKEN }}
-#      - name: execute dlsite script
-#        run: sh dlsite.sh "${{ secrets.DLSITE_COOKIE }}"
-#      - uses: actions/setup-python@v3
-#        with:
-#          python-version: '3.9'
-#      - run: pip install telethon
-#      - name: execute telegram script
-#        run: python telegram.py ${{ secrets.TG_API_ID }} ${{ secrets.TG_API_HASH }} ${{ secrets.TG_SESSION }}
-      - uses: actions/setup-node@v3
+      - name: execute emby script
+        run: sh emby.sh ${{ secrets.EMBY_BASE_URL }} ${{ secrets.EMBY_USER_ID }} ${{ secrets.EMBY_TOKEN }}
+      - name: execute dlsite script
+        run: sh dlsite.sh "${{ secrets.DLSITE_COOKIE }}"
+      - name: Setup Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.9'
+      - run: pip install telethon
+      - name: execute telegram script
+        run: python telegram.py ${{ secrets.TG_API_ID }} ${{ secrets.TG_API_HASH }} ${{ secrets.TG_SESSION }}
+      - name: Setup NodeJS
+        uses: actions/setup-node@v3
         with:
           node-version: '14.x'
       - name: install node modules
         run: npm install request got
       - name: execute JD_DailyBonus script
-        run: |
-          node JD_DailyBonus.js "${{ secrets.JD_COOKIE }}"
+        run: node JD_DailyBonus.js "${{ secrets.JD_COOKIE }}"
       - name: execute Bilibili-DailyBonus script
-        run: |
-          node Bilibili-DailyBonus.js "${{ secrets.BILI_MANGA_COOKIE }}"
+        run: node Bilibili-DailyBonus.js "${{ secrets.BILI_MANGA_COOKIE }}"
