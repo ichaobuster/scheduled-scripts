@@ -24,7 +24,7 @@ jobs:
         with:
           node-version: '14.x'
       - name: install node modules
-        run: npm install request got
+        run: npm install request
       - name: execute JD_DailyBonus script
         run: node JD_DailyBonus.js "${{ secrets.JD_COOKIE }}"
       - name: execute Bilibili-DailyBonus script
