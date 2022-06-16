@@ -58,14 +58,19 @@ function checkin() {
   request.post(bilibili, async function(error, response, data) {
     if (error && !data) {
       console.error(`请求失败!\n${error}`);
+      exit(-1);
     } else if (parseInt(response.status) == 200) {
       console.info(result = "签到成功！🎉");
+      exit(0);
     } else if (/duplicate/.test(data)) {
       console.warn("今日已签过 ⚠️");
+      exit(0);
     } else if (/uid must/.test(data)) {
       onsole.error("Cookie失效 ‼️‼️");
+      exit(-1);
     } else {
       console.error(`签到失败 ‼️\n${data}`);
+      exit(-1);
     }
   })
 }
