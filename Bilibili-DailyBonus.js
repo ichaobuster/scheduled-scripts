@@ -36,14 +36,9 @@ hostname = app.bilibili.com
 ~~~~~~~~~~~~~~~~
 */
 
-// const cookie = $.getdata("CookieBM") || ''; // 哔哩哔哩漫画Cookie
 const cookie = process.argv.slice(2)[0];
 
-if (typeof $request !== 'undefined') {
-  GetCookie()
-} else {
-  checkin()
-}
+checkin();
 
 function checkin() {
   const bilibili = {
