@@ -2,8 +2,6 @@ name: Daily Run
 on:
   schedule:
     - cron: '10,20,30 4,16 * * *'
-  push:
-    branches: [ "main" ]
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
