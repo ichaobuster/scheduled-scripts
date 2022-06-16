@@ -50,12 +50,13 @@ function checkin() {
     url: 'https://manga.bilibili.com/twirp/activity.v1.Activity/ClockIn',
     headers: {
       Cookie: cookie,
+      'Content-Type': 'application/x-www-form-urlencoded',
       'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_6_1 like Mac OS X) AppleWebKit/609.3.5.0.2 (KHTML, like Gecko) Mobile/17G80 BiliApp/822 mobi_app/ios_comic channel/AppStore BiliComic/822',
     },
     body: "platform=ios"
   };
   const request = require('request');
-  request.post(bilibili, async function(error, response, data) {
+  request.post(bilibili, function(error, response, data) {
     if (error && !data) {
       console.error(`请求失败!\n${error}`);
       exit(-1);
