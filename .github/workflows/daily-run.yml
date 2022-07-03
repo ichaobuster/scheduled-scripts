@@ -27,5 +27,5 @@ jobs:
         run: npm install request
       - name: execute JD_DailyBonus script
         run: node JD_DailyBonus.js "${{ secrets.JD_COOKIE }}"
-      - name: execute Bilibili-DailyBonus script
-        run: node Bilibili-DailyBonus.js "${{ secrets.BILI_MANGA_COOKIE }}"
+      #- name: execute Bilibili-DailyBonus script
+      #  run: node Bilibili-DailyBonus.js "${{ secrets.BILI_MANGA_COOKIE }}"
