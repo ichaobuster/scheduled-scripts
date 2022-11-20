@@ -19,13 +19,3 @@ jobs:
       - run: pip install telethon
       - name: execute telegram script
         run: python telegram.py ${{ secrets.TG_API_ID }} ${{ secrets.TG_API_HASH }} ${{ secrets.TG_SESSION }}
-      - name: Setup NodeJS
-        uses: actions/setup-node@v3
-        with:
-          node-version: '14.x'
-      - name: install node modules
-        run: npm install request
-      - name: execute JD_DailyBonus script
-        run: node JD_DailyBonus.js "${{ secrets.JD_COOKIE }}"
-      - name: execute Bilibili-DailyBonus script
-        run: node Bilibili-DailyBonus.js "${{ secrets.BILI_MANGA_COOKIE }}"
