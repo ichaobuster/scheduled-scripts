@@ -1,4 +1,4 @@
-name: Daily Run
+name: Bilibili Manga Daily Run
 on:
   schedule:
     - cron: '10,20,30 4,16 * * *'
@@ -14,5 +14,7 @@ jobs:
           node-version: '14.x'
       - name: install node modules
         run: npm install request
+      - name: execute Bilibili-DailyBonus script
+        run: node Bilibili-DailyBonus.js "${{ secrets.BILI_MANGA_COOKIE }}"
       - name: execute Bilibili-ExchangePoints script
         run: node Bilibili-ExchangePoints.js "${{ secrets.BILI_MANGA_COOKIE }}"
