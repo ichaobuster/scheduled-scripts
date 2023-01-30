@@ -18,10 +18,12 @@ client.start()
 # 忍者云签到
 client.send_message("@renzhecloudbot", '/checkin')
 # Emby签到
-client.send_message("@PronembyTGBot2_bot", '/start')
-time.sleep(15)
-messages = client.get_messages('@PronembyTGBot2_bot')
-messages[0].click(1)
+# client.send_message("@PronembyTGBot2_bot", '/start')
+# time.sleep(15)
+# messages = client.get_messages('@PronembyTGBot2_bot')
+# messages[0].click(1)
+client.send_message("@PronembyTGBot2_bot", '/checkin')
+
 # 标记已读
 time.sleep(3)
 client.send_read_acknowledge("@renzhecloudbot")
