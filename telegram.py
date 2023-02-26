@@ -23,9 +23,9 @@ client.send_message("@renzhecloudbot", '/checkin')
 # messages = client.get_messages('@PronembyTGBot2_bot')
 # messages[0].click(1)
 client.send_message("@PronembyTGBot2_bot", '/checkin')
-time.sleep(5)
+time.sleep(2)
 messages = client.get_messages('@PronembyTGBot2_bot')
-messages[0].click(text='点击签到')
+messages[0].click(0, 0)
 
 # 标记已读
 time.sleep(3)
