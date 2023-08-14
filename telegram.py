@@ -17,19 +17,9 @@ client.start()
 # 以下为签到逻辑
 # 忍者云签到
 client.send_message("@renzhecloudbot", '/checkin')
-# Emby签到
-# client.send_message("@PronembyTGBot2_bot", '/start')
-# time.sleep(15)
-# messages = client.get_messages('@PronembyTGBot2_bot')
-# messages[0].click(1)
-client.send_message("@PronembyTGBot2_bot", '/checkin')
-time.sleep(2)
-messages = client.get_messages('@PronembyTGBot2_bot')
-messages[0].click(0, 0)
 
 # 标记已读
 time.sleep(3)
 client.send_read_acknowledge("@renzhecloudbot")
-client.send_read_acknowledge("@PronembyTGBot2_bot")
 
 client.disconnect()
