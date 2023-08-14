@@ -8,8 +8,6 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
-      #- name: execute emby script
-      #  run: sh emby.sh ${{ secrets.EMBY_BASE_URL }} ${{ secrets.EMBY_USER_ID }} ${{ secrets.EMBY_TOKEN }}
       - name: execute dlsite script
         run: sh dlsite.sh "${{ secrets.DLSITE_COOKIE }}"
       - name: Setup Python
